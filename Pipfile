@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+matplotlib = "*"
+numpy = "*"
+requests = "*"
+pandas = "*"
+beautifulsoup4 = "*"
+selenium = "*"
 
 [dev-packages]
 
