@@ -2,7 +2,7 @@ from os import write
 import requests
 import csv
 
-# 4 years blocks data (2018.01.03 ~ 2021.12.04)
+# 4 years blocks data (2021.09.04 ~ 2021.12.04) 712550 - 699008
 END_BLOCK_NUM = 642610
 START_BLOCK_NUM = 502288
 

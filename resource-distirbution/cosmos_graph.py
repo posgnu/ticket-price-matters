@@ -10,8 +10,6 @@ x = [int(e) for e in x]
 
 
 num_bins = 150
-mu = sum(x)/len(x)  # mean of distribution
-sigma = statistics.stdev(x)  # standard deviation of distribution
 
 fig, ax = plt.subplots()
 

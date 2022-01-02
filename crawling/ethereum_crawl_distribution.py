@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from time import sleep
 
-# 4 years block data (13135926 ~ Dec-07-2021) 
+# 4 years block data (09-04 ~ Dec-07-2021) 13156926 - 13736944
 END_BLOCK_NUM = 13362645
 START_BLOCK_NUM = 4842893
 
