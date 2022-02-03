@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+plt.style.use('seaborn')
 
 f = open("data/bitcoin.csv", "r")
 

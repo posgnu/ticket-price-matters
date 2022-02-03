@@ -1,5 +1,6 @@
 import csv
 import matplotlib.pyplot as plt
+plt.style.use('seaborn')
 import numpy as np
 
 file = open("eth2.csv")
