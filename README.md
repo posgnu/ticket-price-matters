@@ -1,11 +1,12 @@
 # Code vault
+This repository include experiment and data generation code for the paper "The Ticket Price Matters in Sharding Blockchain"
 
 ## Description
-* `archive`:
-* `average-number-of-nodes`:
-* `crawling`:
-* `upper-bound`:
-* `resource-distribution`:
+
+* `average-number-of-nodes`:Draw Figure 4.
+* `crawling`: Crawl block history data.
+* `upper-bound`: Draw Figure 3.
+* `resource-distribution`: Draw Figure 1.
 
 ## How to run
 Prerequisites
@@ -18,7 +19,4 @@ Install dependencies
 $ pipenv install
 ```
 
-After luanching python virtual environment using `pipenv shell` command, you can run any scripts.
-
-## TODO
-- [ ] 
+After luanching python virtual environment using `pipenv shell` command, you can run `generate_figure.sh`.

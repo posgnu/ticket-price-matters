@@ -1,26 +1,28 @@
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('seaborn')
+
+plt.style.use("seaborn")
 import math
 import csv
 
 
-file = open("cosmos.csv")
+file = open("./data/cosmos.csv")
 csvreader = csv.reader(file)
 
 x = next(csvreader)
 x = [int(e) for e in x]
 
+
 def get_beta(T):
     waste = [e % T for e in x]
-    
+
     return sum(waste) / I
 
 
 R = sum(x)
-T = np.linspace(10000, 1000000, 1000)
+T = np.linspace(10000, R * 0.005, 100)
 # Normalization
-#T = np.log(T)
+# T = np.log(T)
 I = len(x)
 
 mu = []
@@ -29,16 +31,17 @@ for t in T:
 
 fig, ax = plt.subplots()
 T = T / R
-line1, = ax.plot(T, mu, label='Average number of nodes')
-ax.hlines(y=2, xmin=min(T), xmax=max(T), linewidth=1, color='r', label="2")
+(line1,) = ax.plot(T, mu, label="Average number of nodes")
+# ax.plot(np.linspace(min(T), max(T), 100), [2] * 100, label="2")
 
 
+ax.set_xlabel("Ratio of ticket price (T / R)", fontsize=24)  # Add an x-label to the axes.
+ax.set_ylabel("Average number of nodes", fontsize=24)  # Add a y-label to the axes.
+plt.xticks(fontsize=18)
+plt.yticks(fontsize=18)
+# ax.set_title("Average number of nodes distribution")  # Add a title to the axes.
 
-ax.set_xlabel('T / R')  # Add an x-label to the axes.
-ax.set_ylabel('Average number of nodes')  # Add a y-label to the axes.
-ax.set_title("Average number of nodes distribution")  # Add a title to the axes.
 
-ax.legend()
-
-plt.show()
-fig.savefig("average_nodes_distribution_cosmos.png")
+plt.tight_layout()
+# plt.show()
+fig.savefig("./results/average_nodes_distribution_cosmos.png")

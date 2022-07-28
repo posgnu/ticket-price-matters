@@ -1,11 +1,12 @@
-
 import csv
 import matplotlib.pyplot as plt
-plt.style.use('seaborn')
+
+plt.style.use("seaborn")
 import statistics
 import math
+import numpy as np
 
-file = open("eth2.csv")
+file = open("./data/eth2.csv")
 csvreader = csv.reader(file)
 
 header = next(csvreader)
@@ -15,22 +16,27 @@ for row in csvreader:
 
 # Normalization
 x = [math.log(e, 32) for e in x]
-
+x = [e / sum(x) for e in x]
 num_bins = 150
-mu = sum(x)/len(x)  # mean of distribution
-sigma = statistics.stdev(x)  # standard deviation of distribution
 
 fig, ax = plt.subplots()
 
 # the histogram of the data
-n, bins, patches = ax.hist(x, num_bins, density=True)
+n, bins, patches = ax.hist(x, num_bins, density=False)
+
 
 # add a 'best fit' line
-ax.set_xlabel('Ratio of voting power (resource)')
-ax.set_ylabel('The number of identity')
+ax.set_xlabel("Ratio of voting power (log(resource))", fontsize=24)
+ax.set_ylabel("The number of participants", fontsize=24)
+plt.xticks(fontsize=18)
+plt.yticks(fontsize=18)
+
+# exp = lambda x: 10 ** (x)
+# log = lambda x: np.log(x)
+# ax.set_yscale("function", functions=(exp, log))
 
 # Tweak spacing to prevent clipping of ylabel
-fig.tight_layout()
-fig.savefig("eth2_resource_distribution.png")
-plt.show()
 
+fig.tight_layout()
+fig.savefig("./results/eth2_resource_distribution.png")
+# plt.show()
